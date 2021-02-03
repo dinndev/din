@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ListContainer = styled.ul`
   display: flex;
@@ -16,9 +17,17 @@ const List = styled.li`
 function Nav() {
   return (
     <ListContainer>
-      <List>About</List>
-      <List>Works</List>
-      <List>Contact</List>
+      <List>
+        <Link className="hover:text-blue-500 transition-all" to="/">
+          About
+        </Link>
+      </List>
+      <List>
+        <Link className="hover:text-blue-500 transition-all" to="/Works">Works</Link>
+      </List>
+      <List>
+        <a className="hover:text-blue-500 transition-all" href="mailto:dinndev@gmail.com">Contact</a>
+      </List>
     </ListContainer>
   );
 }
