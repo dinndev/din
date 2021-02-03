@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ReactComponent as HtmlLogo } from "../Svg/html.svg";
 import { ReactComponent as JsLogo } from "../Svg/JS.svg";
 import { ReactComponent as TailwindLogo } from "../Svg/tailwind.svg";
 import { ReactComponent as ReactLogo } from "../Svg/React.svg";
 
-
-const Heading = styled.h1`
+export const Heading = styled.h1`
   text-align: center;
   font-family: "Nunito", sans-serif;
+  opacity: ${({ animate }) => (animate ? animate.visibility : 0)};
+  transform: ${({ animate }) =>
+    animate ? `translateY(${animate.move})` : "translateY(20px)"};
+  transition: opacity 1s ease, transform 0.7s ease-in-out;
 `;
-const Container = styled.div`
+export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -23,6 +26,9 @@ const LogoContainer = styled.div`
   align-items: center;
   width: 20%;
   margin: 4rem;
+  transition: opacity 1.3s ease, transform 0.8s ease-in-out;
+  opacity: ${({ animate }) => animate.visibility};
+  transform: ${({ animate }) => `translateY(${animate.move})`};
 `;
 const Html = styled(HtmlLogo)`
   height: 2rem;
@@ -42,13 +48,21 @@ const ReactLogoStyled = styled(ReactLogo)`
 `;
 
 function About() {
+  const [show, setShow] = useState({ move: "20px", visibility: 0 });
+  const handleShow = () => {
+    return setShow({ move: "0px", visibility: 1 });
+  };
+  useEffect(() => {
+    handleShow();
+  }, []);
+
   return (
     <Container>
-      <Heading>
+      <Heading animate={show} className="md:text-3xl text-3xl">
         Creator din loves designs and passionate <br /> about developing using
         these tools.
       </Heading>
-      <LogoContainer>
+      <LogoContainer animate={show}>
         <Html />
         <Js />
         <Tailwind />
