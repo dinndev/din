@@ -20,13 +20,16 @@ const LinkContainer = styled.div`
 `;
 const ButtonContainer = styled.div`
   display: flex;
-  width: 60%;
+  width: auto;
 `;
 const Sign = styled.p`
   width: 15%;
   text-align: right;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+`;
+const SignContainer = styled.div`
+  display: flex;
+  width: 15%;
+  justify-content: space-evenly;
 `;
 const Github = styled(GithubLogo)`
   height: 1.5rem;
@@ -51,17 +54,30 @@ function Footer() {
   return (
     <Container>
       <LinkContainer>
-        <a href="https://github.com/dinndev">
+        <a
+          className="hover:text-blue-500 transition-all"
+          href="https://github.com/dinndev"
+        >
           <Github />
         </a>
-        <a href="https://twitter.com/dinndevv">
+        <a
+          className="hover:text-blue-500 transition-all"
+          href="https://twitter.com/dinndevv"
+        >
           <Twitter />
         </a>
-        <a href="https://www.instagram.com/diin_oo/">
+        <a
+          className="hover:text-blue-500 transition-all"
+          href="https://www.instagram.com/diin_oo/"
+        >
           <Insta />
         </a>
       </LinkContainer>
-      <Sign>Made with {<HeartLogo />} by din</Sign>
+      <SignContainer>
+        <p className="text-xs">Made with</p>
+        <span>{<HeartLogo className="text-red-500" />}</span>
+        <p className="text-xs">By din</p>
+      </SignContainer>
     </Container>
   );
 }
