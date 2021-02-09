@@ -10,14 +10,10 @@ import Footer from "./Components/Footer";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
 export const AppContainer = styled.div`
-  margin: 0rem 7% 0rem 7%;
+  margin: 0rem 5% 0rem 5%;
   height: 100vh;
-  @media (min-height: 1000px) {
-    height: 80vh;
-  }
 `;
 const Title = styled.h2`
-  font-family: "NunitoBlack";
   cursor: pointer;
 `;
 const Header = styled.div`
@@ -26,7 +22,6 @@ const Header = styled.div`
   justify-content: space-between;
   height: 15%;
   align-items: center;
-  transition: all 0.4s ease;
 `;
 const MainContent = styled.div`
   display: flex;
@@ -35,7 +30,7 @@ const MainContent = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 7%;
+  width: 5rem;
   height: 5%;
   margin: auto;
 `;
@@ -43,23 +38,22 @@ const DarkToggleButton = styled.button`
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 100rem;
-  background: ${({ theme }) => theme.color};
+  background: ${({ theme }) => theme.background};
   border: #343030 1px solid;
   :focus {
     outline: 0;
   }
 `;
 const LightToggleButton = styled(DarkToggleButton)`
-  background: ${({ theme }) => theme.background};
+  background: ${({ theme }) => theme.color};
 `;
 function App() {
   const [theme, setTheme] = useState("light");
-  const handleDarkTheme = (_) => {
+  const handleDarkTheme = () => {
     setTheme("dark");
   };
-  const handleLightTheme = (_) => {
+  const handleLightTheme = () => {
     setTheme("light");
-    console.log("change theme");
   };
   return (
     <AppContainer>
@@ -67,7 +61,7 @@ function App() {
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
           <GlobalStyle />
           <Header>
-            <Title className="text-2xl">
+            <Title className="text-2xl font-nunitoBold font-black">
               <Link to="/">din</Link>
             </Title>
             <Nav />
@@ -79,8 +73,8 @@ function App() {
             </MainContent>
           </Switch>
           <ButtonContainer>
-            <LightToggleButton onClick={(_) => handleLightTheme()} />
-            <DarkToggleButton onClick={(_) => handleDarkTheme()} />
+            <LightToggleButton onClick={() => handleLightTheme()} />
+            <DarkToggleButton onClick={() => handleDarkTheme()} />
           </ButtonContainer>
           <Footer />
         </ThemeProvider>
