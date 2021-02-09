@@ -6,8 +6,13 @@ const ListContainer = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: RobotoBold;
-  width: 30%;
+  width: 80%;
+  @media (min-width: 468px) {
+    width: 50%;
+  }
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
 `;
 const List = styled.li`
   list-style-type: none;
@@ -16,17 +21,24 @@ const List = styled.li`
 
 function Nav() {
   return (
-    <ListContainer>
-      <List>
+    <ListContainer className="font-roboto font-bold">
+      <List className="">
         <Link className="hover:text-blue-500 transition-all" to="/">
           About
         </Link>
       </List>
       <List>
-        <Link className="hover:text-blue-500 transition-all" to="/Works">Works</Link>
+        <Link className="hover:text-blue-500 transition" to="/Works">
+          Works
+        </Link>
       </List>
       <List>
-        <a className="hover:text-blue-500 transition-all" href="mailto:dinndev@gmail.com">Contact</a>
+        <a
+          className="hover:text-blue-500 transition-all"
+          href="mailto:dinndev@gmail.com"
+        >
+          Contact
+        </a>
       </List>
     </ListContainer>
   );
