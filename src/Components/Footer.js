@@ -14,7 +14,6 @@ const Container = styled.div`
 `;
 const LinkContainer = styled.div`
   display: flex;
-  width: 15%;
   align-items: center;
   justify-content: space-between;
 `;
@@ -28,7 +27,6 @@ const Sign = styled.p`
 `;
 const SignContainer = styled.div`
   display: flex;
-  width: 15%;
   justify-content: space-evenly;
 `;
 const Github = styled(GithubLogo)`
@@ -53,7 +51,7 @@ const HeartLogo = styled(Heart)`
 function Footer() {
   return (
     <Container>
-      <LinkContainer>
+      <LinkContainer className="w-4/12 sm:w-2/12 lg:w-2/12">
         <a
           className="hover:text-blue-500 transition-all"
           href="https://github.com/dinndev"
@@ -73,9 +71,9 @@ function Footer() {
           <Insta />
         </a>
       </LinkContainer>
-      <SignContainer>
+      <SignContainer className="text-xs w-5/12 sm:w-1/4 lg:w-2/12">
         <p className="text-xs">Made with</p>
-        <span>{<HeartLogo className="text-red-500" />}</span>
+        <span>{<HeartLogo />}</span>
         <p className="text-xs">By din</p>
       </SignContainer>
     </Container>
