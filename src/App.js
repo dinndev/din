@@ -6,7 +6,7 @@ import styled from "styled-components";
 import About from "./Components/About";
 import Works from "./Components/Works";
 import Footer from "./Components/Footer";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Link, Route, Switch } from "react-router-dom";
 
 export const AppContainer = styled.div`
   margin: 0rem 5% 0rem 5%;
@@ -64,7 +64,7 @@ function App() {
         </Header>
         <Switch>
           <MainContent>
-            <Route exact path="/din" component={About} />
+            <Route exact path="/" component={About} />
             <Route exact path="/Works" component={Works} />
           </MainContent>
         </Switch>

@@ -23,7 +23,7 @@ function Nav() {
   return (
     <ListContainer className="font-roboto font-bold">
       <List className="">
-        <Link className="hover:text-blue-500 transition-all" to="/din">
+        <Link className="hover:text-blue-500 transition-all" to="/">
           About
         </Link>
       </List>
