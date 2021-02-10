@@ -7,7 +7,12 @@ module.exports = {
     "public/**/*.html",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        nunitoBold: ["Nunito"],
+        roboto: ["Roboto"],
+      },
+    },
   },
   variants: {},
   plugins: [],

@@ -11,6 +11,7 @@ const OverLay = styled(motion.div)`
   background: rgba(235, 235, 235, 0.69);
   backdrop-filter: blur(4px);
   z-index: 100;
+  cursor: pointer;
 `;
 const ModalContent = styled(motion.div)`
   z-index: 1000;
@@ -24,6 +25,11 @@ const ModalContent = styled(motion.div)`
   border-radius: 10px;
   background: #f9f9f9;
   border-radius: 20px 20px 0px 0px;
+  color: #666565;
+  height: 30rem;
+  @media (min-width: 768px) {
+    height: 20rem /* 320px */;
+  }
 `;
 
 function Modal({ children, modalHide }) {
@@ -46,7 +52,7 @@ function Modal({ children, modalHide }) {
       />
       <ModalContent
         initial={{
-          y: 60,
+          y: 400,
           opacity: 0,
         }}
         animate={{
@@ -54,14 +60,16 @@ function Modal({ children, modalHide }) {
           opacity: 1,
           transition: {
             duration: 0.5,
-            delay: 0.3,
           },
         }}
         exit={{
-          y: 60,
-          opacity: 0,
+          y: 400,
+          transition: {
+            duration: 0.5,
+            opacity: 0,
+          },
         }}
-        className="p-10 relative sm:p-8 lg:w-8/12 overflow-hidden xl:w-7/12 md:w-3/4 md:relative w-11/12 sm:w-9/12  xl:max-w-4xl flex-col md:flex-row md:h-80 lg:h-80 h-4/5 sm:h-5/6"
+        className="p-8 sm:p-6 relative lg:w-8/12 overflow-hidden xl:w-7/12 md:w-3/4 md:relative w-full sm:w-9/12  xl:max-w-4xl flex-col md:flex-row"
       >
         {children}
       </ModalContent>

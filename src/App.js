@@ -19,7 +19,6 @@ const Title = styled.h2`
 const Header = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-between;
   height: 15%;
   align-items: center;
 `;
@@ -60,8 +59,8 @@ function App() {
       <Router>
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
           <GlobalStyle />
-          <Header>
-            <Title className="text-2xl font-nunitoBold font-black">
+          <Header className="flex-col md:flex-row justify-around md:justify-between">
+            <Title className="text-3xl md:text-3xl font-nunitoBold font-black">
               <Link to="/">din</Link>
             </Title>
             <Nav />
