@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import GlobalStyle from "./Fonts/fonts";
-import { ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "./Themes";
+// import { lightTheme, darkTheme } from "./Themes";
 import Nav from "./Components/Nav";
 import styled from "styled-components";
 import About from "./Components/About";
@@ -24,59 +23,56 @@ const Header = styled.div`
 `;
 const MainContent = styled.div`
   display: flex;
-  height: 65%;
+  height: 70%;
 `;
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 5rem;
-  height: 5%;
-  margin: auto;
-`;
-const DarkToggleButton = styled.button`
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 100rem;
-  background: ${({ theme }) => theme.background};
-  border: #343030 1px solid;
-  :focus {
-    outline: 0;
-  }
-`;
-const LightToggleButton = styled(DarkToggleButton)`
-  background: ${({ theme }) => theme.color};
-`;
+// const ButtonContainer = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   width: 5rem;
+//   margin: auto;
+// `;
+// const DarkToggleButton = styled.button`
+//   width: 1.5rem;
+//   height: 1.5rem;
+//   border-radius: 100rem;
+//   background: ${({ theme }) => theme.background};
+//   border: #343030 1px solid;
+//   :focus {
+//     outline: 0;
+//   }
+// `;
+// const LightToggleButton = styled(DarkToggleButton)`
+//   background: ${({ theme }) => theme.color};
+// `;
 function App() {
-  const [theme, setTheme] = useState("light");
-  const handleDarkTheme = () => {
-    setTheme("dark");
-  };
-  const handleLightTheme = () => {
-    setTheme("light");
-  };
+  // const [theme, setTheme] = useState("light");
+  // const handleDarkTheme = () => {
+  //   setTheme("dark");
+  // };
+  // const handleLightTheme = () => {
+  //   setTheme("light");
+  // };
   return (
     <AppContainer>
       <Router>
-        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-          <GlobalStyle />
-          <Header className="flex-col md:flex-row justify-around md:justify-between">
-            <Title className="text-3xl md:text-3xl font-nunitoBold font-black">
-              <Link to="/">din</Link>
-            </Title>
-            <Nav />
-          </Header>
-          <Switch>
-            <MainContent>
-              <Route exact path="/" component={About} />
-              <Route exact path="/Works" component={Works} />
-            </MainContent>
-          </Switch>
-          <ButtonContainer>
+        <GlobalStyle />
+        <Header className="flex-col md:flex-row justify-around md:justify-between">
+          <Title className="text-3xl md:text-3xl font-nunitoBold font-black">
+            <Link to="/">din</Link>
+          </Title>
+          <Nav />
+        </Header>
+        <Switch>
+          <MainContent>
+            <Route exact path="/din" component={About} />
+            <Route exact path="/Works" component={Works} />
+          </MainContent>
+        </Switch>
+        {/* <ButtonContainer className="flex flex-col absolute top-0 right-10">
             <LightToggleButton onClick={() => handleLightTheme()} />
             <DarkToggleButton onClick={() => handleDarkTheme()} />
-          </ButtonContainer>
-          <Footer />
-        </ThemeProvider>
+          </ButtonContainer> */}
+        <Footer />
       </Router>
     </AppContainer>
   );

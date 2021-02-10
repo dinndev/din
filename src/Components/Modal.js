@@ -26,9 +26,12 @@ const ModalContent = styled(motion.div)`
   background: #f9f9f9;
   border-radius: 20px 20px 0px 0px;
   color: #666565;
-  height: 30rem;
+  height: 35rem;
   @media (min-width: 768px) {
     height: 20rem /* 320px */;
+  }
+  @media (min-width: 1280px) {
+    height: 21rem /* 320px */;
   }
 `;
 

@@ -39,10 +39,16 @@ const WorksHeading = styled(motion.div)`
 const Button = styled.button`
   background-color: transparent;
   color: #0976da;
-  width: 15%;
   font-size: 1rem;
   text-align: left;
   outline: none;
+  width: 45%;
+  @media (min-width: 768px) {
+    width: 25%;
+  }
+  @media (min-width: 640px) {
+    width: 26%;
+  }
   :focus {
     outline: 0;
   }
@@ -76,7 +82,6 @@ function Works() {
   const [show, setShow] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [modalData, setModalData] = useState([]);
-  console.log(modalData, modalShow);
   const handleShow = () => {
     setShow(true);
   };
@@ -95,6 +100,7 @@ function Works() {
       <AnimatePresence>
         {show && (
           <WorksHeading
+            key="WorksHeading"
             className=" text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-8 lg:mb-10 font-nunitoBold font-semibold"
             initial={{
               y: 30,
@@ -107,6 +113,13 @@ function Works() {
                 duration: 0.7,
               },
             }}
+            exit={{
+              y: 30,
+              opacity: 0,
+              transition: {
+                duration: 0.7,
+              },
+            }}
           >
             Some of my dedications and <br />
             creativity.
@@ -114,6 +127,7 @@ function Works() {
         )}
         {show && (
           <CardContainer
+            key="Cards"
             initial={{
               y: 30,
               opacity: 0,
@@ -121,6 +135,13 @@ function Works() {
             animate={{
               y: 0,
               opacity: 1,
+              transition: {
+                duration: 0.8,
+              },
+            }}
+            exit={{
+              y: 30,
+              opacity: 0,
               transition: {
                 duration: 0.8,
               },
@@ -133,7 +154,7 @@ function Works() {
                 Explore your favorite artists , their <br /> masterpieces and
                 tracks.
                 <br />
-                powered by deezer.
+                powered by Deezer Api.
               </p>
               <Button
                 onClick={() => {
@@ -148,10 +169,8 @@ function Works() {
             <Card className=" mx-5 xl:mx-0 flex xl:col-span-1 flex-col justify-between ">
               <Npm className=" h-8 w-8 text-transparent " />
               <p>
-                Explore your favorite artists , their <br /> masterpieces and
-                tracks.
-                <br />
-                powered by deezer.
+                React-Ui Library allows you to select <br /> and create easily
+                the best Ui of your choice.
               </p>
               <Button
                 onClick={() => {
@@ -166,10 +185,7 @@ function Works() {
             <Card className="justify-self-start flex xl:col-span-1 flex-col justify-between">
               <Dashboard className="h-8 w-8 text-transparent" />
               <p>
-                Explore your favorite artists , their <br /> masterpieces and
-                tracks.
-                <br />
-                powered by deezer.
+                Data representation responsive <br /> and light Ui design.
               </p>
               <Button
                 onClick={() => {
@@ -187,7 +203,7 @@ function Works() {
           Array.from(modalData).map(
             ({ description, image, svg, title, link, demo, id }) => {
               return (
-                <Modal modalHide={handleModalHide} key={id}>
+                <Modal key="Modal" modalHide={handleModalHide}>
                   <div className="h-1/2 relative md:w-1/2 md:h-auto flex flex-col">
                     <div className="flex justify-between mb-2 sm:mb-6 md:mb-0 flex-col h-full">
                       <h1 className="text-2xl font-roboto font-bold">
@@ -196,24 +212,26 @@ function Works() {
                       <p className="sm:text-lg md:text-base text-base my-4 sm:my-6 md:my-0 font-nunitoBold font-semibold">
                         {description}
                       </p>
-                      <div className="flex h-2/5 w-full justify-between flex-row md:flex-col">
-                        <div className="flex md:w-1/4 xl:w-1/5 w-3/12 justify-between">
+                      <div className="flex h-1/3 w-full justify-between items-center flex-row md:flex-col">
+                        <div className="flex md:w-full w-3/12">
                           {svg.map((path, i) => (
-                            <span key={i}>{path}</span>
+                            <span className="mr-6" key={i}>
+                              {path}
+                            </span>
                           ))}
                         </div>
-                        <div className="flex w-2/4 sm:w-9/12 md:mb-0 mb-4 justify-evenly sm:justify-end bottom-0 md:w-full items-center md:justify-start">
+                        <div className="flex w-2/4 sm:w-9/12 justify-start bottom-0 md:w-full items-center md:justify-start">
                           <DemoButton
                             as="a"
                             href={demo}
-                            className=" text-md mr-3 md:mr-8 font-nunitoBold"
+                            className=" text-sm md:text-md mr-4 md:mr-8 font-nunitoBold"
                           >
                             Demo
                           </DemoButton>
                           <Button
                             as="a"
                             href={link}
-                            className="font-nunitoBold font-bold"
+                            className=" text-center font-nunitoBold font-bold"
                           >
                             Github
                           </Button>

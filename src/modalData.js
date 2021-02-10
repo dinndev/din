@@ -77,7 +77,7 @@ export const reactMiniui = [
       </svg>,
     ],
     description:
-      "Musix allows you to search albums and tracks of your favorite artists powered by Deezer api design idea from dribbble.",
+      "Re-usable React components that provides simple UI. it allows you to implement and customize your UI easily. published at npm.",
   },
 ];
 export const dataDashBoard = [
@@ -112,6 +112,6 @@ export const dataDashBoard = [
       </svg>,
     ],
     description:
-      "Musix allows you to search albums and tracks of your favorite artists powered by Deezer api design idea from dribbble.",
+      "Data representation UI ,Data design idea for an individual profile to track the changes status of their business . Design idea from Dribble and data represented using Chart.js",
   },
 ];

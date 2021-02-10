@@ -53,6 +53,7 @@ function About() {
       <AnimatePresence>
         {show && (
           <Heading
+            key="AboutHeading "
             initial={{
               y: 30,
               opacity: 0,
@@ -60,6 +61,13 @@ function About() {
             animate={{
               y: 0,
               opacity: 1,
+              transition: {
+                duration: 0.7,
+              },
+            }}
+            exit={{
+              y: 30,
+              opacity: 0,
               transition: {
                 duration: 0.7,
               },
@@ -72,6 +80,7 @@ function About() {
         )}
         {show && (
           <LogoContainer
+            key="Logos"
             initial={{
               y: 30,
               opacity: 0,
@@ -79,6 +88,13 @@ function About() {
             animate={{
               y: 0,
               opacity: 1,
+              transition: {
+                duration: 0.8,
+              },
+            }}
+            exit={{
+              y: 30,
+              opacity: 0,
               transition: {
                 duration: 0.8,
               },
