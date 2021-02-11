@@ -10,7 +10,7 @@ const OverLay = styled(motion.div)`
   position: absolute;
   background: rgba(235, 235, 235, 0.69);
   backdrop-filter: blur(4px);
-  z-index: 100;
+  z-index: 1;
   cursor: pointer;
 `;
 const ModalContent = styled(motion.div)`
@@ -33,26 +33,28 @@ const ModalContent = styled(motion.div)`
   @media (min-width: 1280px) {
     height: 21rem /* 320px */;
   }
+  @media (max-height: 500px) {
+    height: 15rem /* 320px */;
+  }
 `;
 
 function Modal({ children, modalHide }) {
   return (
-    <>
-      <OverLay
-        onClick={modalHide}
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-          transition: {
-            duration: 0.3,
-          },
-        }}
-        exit={{
-          opacity: 0,
-        }}
-      />
+    <OverLay
+      onClick={modalHide}
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+        transition: {
+          duration: 0.3,
+        },
+      }}
+      exit={{
+        opacity: 0,
+      }}
+    >
       <ModalContent
         initial={{
           y: 400,
@@ -76,7 +78,7 @@ function Modal({ children, modalHide }) {
       >
         {children}
       </ModalContent>
-    </>
+    </OverLay>
   );
 }
 

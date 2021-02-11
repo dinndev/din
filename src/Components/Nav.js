@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "./Nav.css";
 
 const ListContainer = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
   @media (min-width: 468px) {
     width: 50%;
   }
@@ -17,28 +18,27 @@ const ListContainer = styled.ul`
 const List = styled.li`
   list-style-type: none;
   cursor: pointer;
+  transition: color 0.5s ease-out;
+  :hover {
+    color: #0976da;
+  }
 `;
 
 function Nav() {
   return (
     <ListContainer className="font-roboto font-bold">
-      <List className="">
-        <Link className="hover:text-blue-500 transition-all" to="/">
+      <List>
+        <NavLink exact activeClassName="active-link" to="/">
           About
-        </Link>
+        </NavLink>
       </List>
       <List>
-        <Link className="hover:text-blue-500 transition" to="/Works">
+        <NavLink exact activeClassName="active-link" to="/Works">
           Works
-        </Link>
+        </NavLink>
       </List>
       <List>
-        <a
-          className="hover:text-blue-500 transition-all"
-          href="mailto:dinndev@gmail.com"
-        >
-          Contact
-        </a>
+        <a href="mailto:dinndev@gmail.com">Contact</a>
       </List>
     </ListContainer>
   );

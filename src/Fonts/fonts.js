@@ -20,6 +20,7 @@ export default createGlobalStyle`
     fill: currentColor;
     ::-webkit-scrollbar {
     display: none; /* Chrome Safari */
+    user-select: none;
   }
     /* Hide scrollbar for Chrome, Safari and Opera */
 

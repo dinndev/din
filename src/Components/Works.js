@@ -20,6 +20,9 @@ const Card = styled.div`
   @media (min-width: 1280px) {
     min-width: 85%;
   }
+  @media (max-height: 500px) {
+    height: 65%;
+  }
 `;
 const CardContainer = styled(motion.div)`
   ::-webkit-scrollbar {
@@ -35,20 +38,17 @@ const CardContainer = styled(motion.div)`
 `;
 const WorksHeading = styled(motion.div)`
   text-align: center;
+  @media (max-height: 500px) {
+    margin-bottom: 1rem;
+  }
 `;
 const Button = styled.button`
   background-color: transparent;
   color: #0976da;
   font-size: 1rem;
-  text-align: left;
+  text-align: center;
   outline: none;
-  width: 45%;
-  @media (min-width: 768px) {
-    width: 25%;
-  }
-  @media (min-width: 640px) {
-    width: 26%;
-  }
+
   :focus {
     outline: 0;
   }
@@ -101,7 +101,7 @@ function Works() {
         {show && (
           <WorksHeading
             key="WorksHeading"
-            className=" text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-8 lg:mb-10 font-nunitoBold font-semibold"
+            className=" text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-4 lg:mb-10 font-nunitoBold font-semibold"
             initial={{
               y: 30,
               opacity: 0,
@@ -148,10 +148,10 @@ function Works() {
             }}
             className="font-nunitoBold xl:grid flex whitespace-nowrap items-center w-1/2 justify-items-center xl:grid-rows-none xl:grid-cols-3"
           >
-            <Card className="justify-self-end flex xl:col-span-1 flex-col justify-between ">
+            <Card className="justify-self-end flex items-center xl:col-span-1 flex-col justify-between ">
               <Group className="h-8 w-8 " />
-              <p>
-                Explore your favorite artists , their <br /> masterpieces and
+              <p className="text-center">
+                Explore your favorite artists, their <br /> masterpieces and
                 tracks.
                 <br />
                 powered by Deezer Api.
@@ -161,30 +161,31 @@ function Works() {
                   setModalData([...musix]);
                   setModalShow(true);
                 }}
-                className="tracking-wide font-roboto font-black"
+                className="tracking-wide w-full font-roboto font-black"
               >
                 Musix
               </Button>
             </Card>
-            <Card className=" mx-5 xl:mx-0 flex xl:col-span-1 flex-col justify-between ">
+            <Card className=" mx-5 xl:mx-0 items-center  flex xl:col-span-1 flex-col justify-between ">
               <Npm className=" h-8 w-8 text-transparent " />
-              <p>
-                React-Ui Library allows you to select <br /> and create easily
-                the best Ui of your choice.
+              <p className="text-center">
+                React-UI library allows you to <br /> select and create easily
+                <br />
+                the best UI of your choice.
               </p>
               <Button
                 onClick={() => {
                   setModalData([...reactMiniui]);
                   setModalShow(true);
                 }}
-                className="tracking-wide font-roboto font-black"
+                className="w-full  tracking-wide font-roboto font-black"
               >
                 React-mini-ui
               </Button>
             </Card>
-            <Card className="justify-self-start flex xl:col-span-1 flex-col justify-between">
+            <Card className="justify-self-start items-center  flex xl:col-span-1 flex-col justify-between">
               <Dashboard className="h-8 w-8 text-transparent" />
-              <p>
+              <p className="text-center">
                 Data representation responsive <br /> and light Ui design.
               </p>
               <Button
@@ -192,7 +193,7 @@ function Works() {
                   setModalData([...dataDashBoard]);
                   setModalShow(true);
                 }}
-                className="tracking-wide font-roboto font-black"
+                className="w-full tracking-wide font-roboto font-black"
               >
                 Dashboard-data
               </Button>

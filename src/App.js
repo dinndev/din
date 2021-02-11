@@ -57,7 +57,7 @@ function App() {
       <Router>
         <GlobalStyle />
         <Header className="flex-col md:flex-row justify-around md:justify-between">
-          <Title className="text-3xl md:text-3xl font-nunitoBold font-black">
+          <Title className="text-2xl md:text-3xl font-nunitoBold font-black">
             <Link to="/">din</Link>
           </Title>
           <Nav />
